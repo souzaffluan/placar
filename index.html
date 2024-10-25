@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Placar</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Isira os dados:</h1>
+
+  <form id="placarForm">
+    <input type="text" id="usuario" placeholder="Usuário" required>
+    <input type="text" id="game" placeholder="Jogo" required>
+    <input type="number" id="score" placeholder="Score" min="0" required>
+    <button type="submit">Adicionar</button>
+  </form>
+
+  <h1>Placar</h1>
+  <table id="placarTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Usuário</th>
+        <th>Jogo</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Os dados serão inseridos aqui -->
+    </tbody>
+  </table>
+
+  <script>
+    fetch('http://localhost:3000/placares')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Rede não disponível');
+        }
+        return response.json();
+      })
+      .then(placares => { // Modifique aqui para usar 'placares' diretamente
+        console.log(placares); // Verifique o que está sendo retornado
+        const tableBody = document.querySelector('#placarTable tbody');
+
+        // Ordena os placares por jogo e depois por score (decrescente)
+        placares.sort((a, b) => {
+          if (a.game.localeCompare(b.game) === 0) {
+            return b.score - a.score; // Ordena por score se os jogos forem iguais
+          }
+          return a.game.localeCompare(b.game); // Ordena por jogo
+        });
+
+        placares.forEach(placar => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+                <td>${placar.id}</td>
+                <td>${placar.usuario}</td>
+                <td>${placar.game}</td>
+                <td>${placar.score}</td>
+            `;
+          tableBody.appendChild(row);
+        });
+      })
+      .catch(error => console.error('Erro ao buscar dados:', error));
+
+    // Função para enviar dados do formulário
+    const addPlacar = (event) => {
+      event.preventDefault(); // Impede o envio padrão do formulário
+      const usuario = document.getElementById('usuario').value;
+      const game = document.getElementById('game').value;
+      const score = document.getElementById('score').value;
+
+      const newPlacar = { usuario, game, score: Number(score) };
+
+      fetch('http://localhost:3000/placares', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newPlacar),
+      })
+        .then(response => response.json())
+        .then(() => {
+          fetchPlacares(); // Atualiza a tabela após adicionar
+          // Atualiza a tabela após adicionar
+          document.getElementById('placarForm').reset(); // Limpa o formulário
+        })
+        .catch(error => console.error('Erro ao adicionar placar:', error));
+    };
+
+    document.getElementById('placarForm').addEventListener('submit', addPlacar);
+
+    // Carrega os placares ao iniciar
+    fetchPlacares();
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+{
+  "placares": [
+    {
+      "id": 1,
+      "usuario": "Wellington",
+      "game": "lustrous dish",
+      "score": 3
+    },
+    {
+      "id": 2,
+      "usuario": "Delphia",
+      "game": "fatal sandbar",
+      "score": 4
+    },
+    {
+      "id": 3,
+      "usuario": "Katelynn",
+      "game": "jaunty clavicle",
+      "score": 4
+    },
+    {
+      "id": 4,
+      "usuario": "Ocie",
+      "game": "multicolored scaffold",
+      "score": 3
+    },
+    {
+      "id": 5,
+      "usuario": "Geraldine",
+      "game": "junior brief",
+      "score": 0
+    },
+    {
+      "id": 6,
+      "usuario": "Mariah",
+      "game": "crowded encouragement",
+      "score": 1
+    },
+    {
+      "id": 7,
+      "usuario": "Jasmin",
+      "game": "outrageous dime",
+      "score": 4
+    },
+    {
+      "id": 8,
+      "usuario": "Jamar",
+      "game": "immense millet",
+      "score": 0
+    },
+    {
+      "id": 9,
+      "usuario": "Hillary",
+      "game": "tangible rawhide",
+      "score": 5
+    },
+    {
+      "id": 10,
+      "usuario": "Lindsay",
+      "game": "cute fen",
+      "score": 0
+    },
+    {
+      "id": "af1d",
+      "usuario": "Luan",
+      "game": "God of war",
+      "score": 25
+    },
+    {
+      "id": "53b1",
+      "usuario": "Luan",
+      "game": "God of war",
+      "score": 25
+    },
+    {
+      "id": "ae64",
+      "usuario": "ricardo",
+      "game": "game of trones",
+      "score": 10
+    },
+    {
+      "id": "dcac",
+      "usuario": "paulo",
+      "game": "enduro",
+      "score": 5
+    },
+    {
+      "id": "759f",
+      "usuario": "teste",
+      "game": "game jogo",
+      "score": 20
+    }
+  ]
+}

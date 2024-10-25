@@ -1,0 +1,22 @@
+{
+  "name": "placar",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.9"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.0.3",
+    "faker": "^6.6.6",
+    "js": "^0.1.0",
+    "json": "^11.0.0",
+    "json-server": "^1.0.0-beta.3",
+    "server": "^1.0.41"
+  }
+}
