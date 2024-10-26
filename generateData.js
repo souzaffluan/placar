@@ -12,7 +12,7 @@ const generatePlacares = (num) => {
       id: i + 1,
       usuario: faker.name.firstName(),
       game:  generateGameName(),
-      score: faker.number.int({ min: 0, max: 5 }), // Corrigido
+      score: faker.number.int({ min: 0, max: 100 }), // Corrigido
     
     });
   }

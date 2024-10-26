@@ -51,7 +51,7 @@
   </table>
 
   <script>
-    fetch('http://localhost:3000/placares')
+    fetch('http://localhost:3000/placares?_sort=game,-score')
       .then(response => {
         if (!response.ok) {
           throw new Error('Rede não disponível');
@@ -63,12 +63,12 @@
         const tableBody = document.querySelector('#placarTable tbody');
 
         // Ordena os placares por jogo e depois por score (decrescente)
-        placares.sort((a, b) => {
+       /* placares.sort((a, b) => {
           if (a.game.localeCompare(b.game) === 0) {
             return b.score - a.score; // Ordena por score se os jogos forem iguais
           }
           return a.game.localeCompare(b.game); // Ordena por jogo
-        });
+        });*/
 
         placares.forEach(placar => {
           const row = document.createElement('tr');
